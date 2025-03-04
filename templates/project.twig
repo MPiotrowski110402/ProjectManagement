@@ -60,15 +60,15 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                    <form  action="" method="POST">
                         {% for task in tasksStarted%}
                         <li class="list-group-item">
+                            <form  action="" method="POST">
                             <span>{{task.title}}</span>
                             <input type="hidden" value="{{task.id}}" name="task_id">
                             <button type="submit" name="reserved_btn"class="btn btn-sm btn-primary float-right">Przejmij</button>
+                            </form>
                         </li>
                         {% endfor %}
-                    </form>
                     </ul>
                 </div>
             </div>
