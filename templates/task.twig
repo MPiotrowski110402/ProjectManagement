@@ -1,0 +1,63 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Kolumna dla zadania -->
+        <div class="col-md-8">
+            <!-- Sekcja: Szczegóły zadania -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Zadanie: <span class="text-primary">{{task.title}}</span></h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Opis:</strong>{{task.description}}</p>
+                    <p><strong>Status:</strong> <span class="badge badge-warning">{{task.status}}</span></p>
+                    <p><strong>Termin:</strong> {{task.due_date}}</p>
+                    {% if finished != 'Completed' %}
+                    <a href="index.php?page=task&task_id={{task.id}}&finish=true" class="btn btn-success">Zakończ zadanie</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Sekcja: Dodawanie notatki -->
+            {% if finished != 'Completed'%}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Dodaj notatkę do zadania</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        <div class="mb-3">
+                            <label for="noteContent" class="form-label">Treść notatki</label>
+                            <textarea class="form-control" name="comment" id="noteContent" rows="3" placeholder="Wpisz treść notatki..."></textarea>
+                        </div>
+                        <button type="submit" name="add_note_btn" class="btn btn-primary">Dodaj notatkę</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Sekcja: Lista notatek -->
+            <div class="card">
+                <div class="card-header">
+                    <h4>Notatki do zadania</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for note in comments %}
+                        <li class="list-group-item">
+                            <p><strong>{{note.username}}</strong><br/>{{note.comment}}</p>
+                            <small>Dodano: {{note.created_at}}</small>
+                        </li>
+                        {% else %}
+                        <p><strong>Brak notatek</strong></p>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

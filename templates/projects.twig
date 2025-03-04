@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-orange fw-bold text-center">Projekty</h1>
+    
+    <!-- Przycisk do dodawania projektu -->
+    <div class="text-right mb-4">
+        <a href="index.php?page=addProject" class="btn btn-success">Dodaj projekt</a>
+    </div>
+
+    <div class="row">
+        {% for project in projects %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-orange">{{ project.name }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <a href="index.php?page=project&project_id={{ project.id }}" class="btn btn-orange">Zobacz więcej</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

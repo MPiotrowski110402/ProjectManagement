@@ -1,0 +1,20 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-orange fw-bold text-center">Dodaj nowy projekt</h1>
+    
+    <!-- Formularz dodawania projektu -->
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="project_name" class="form-label">Nazwa projektu</label>
+            <input type="text" class="form-control" id="project_name" name="project_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="project_description" class="form-label">Opis projektu</label>
+            <textarea class="form-control" id="project_description" name="project_description" rows="4" required></textarea>
+        </div>
+        <button type="submit" name="add_project" class="btn btn-primary">Zapisz projekt</button>
+    </form>
+</div>
+{% endblock %}

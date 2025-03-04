@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aplikacja do Zarządzania Projektami</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .bg-orange {
+    background-color: #FF7F00 !important;
+}
+
+.text-orange {
+    color: #FF7F00 !important;
+}
+
+.btn-orange {
+    background-color: #FF7F00;
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: #E67000;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+    {% include 'header.twig' %}
+
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'footer.twig' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

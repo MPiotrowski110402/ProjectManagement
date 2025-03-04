@@ -1,0 +1,63 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Logowanie / Rejestracja</h2>
+
+            <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Logowanie</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Rejestracja</a>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3" id="authTabsContent">
+                <!-- Logowanie -->
+                <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                    <form method="post" action="">
+                        <div class="mb-3">
+                            <label for="login_email" class="form-label">Adres e-mail</label>
+                            <input type="email" class="form-control" id="login_email" name="login_email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login_password" class="form-label">Hasło</label>
+                            <input type="password" class="form-control" id="login_password" name="login_password" required>
+                        </div>
+                        <button type="submit" name="get_login" class="btn btn-primary">Zaloguj</button>
+                        {%if errors %}
+                        <p>{{errors}} </p>
+                        {% endif %}
+                    </form>
+                </div>
+
+                <!-- Rejestracja -->
+                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                    <form method="post" action="">
+                        <div class="mb-3">
+                            <label for="register_name" class="form-label">Login</label>
+                            <input type="text" class="form-control" id="register_name" name="register_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register_email" class="form-label">Adres e-mail</label>
+                            <input type="email" class="form-control" id="register_email" name="register_email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register_password" class="form-label">Hasło</label>
+                            <input type="password" class="form-control" id="register_password" name="register_password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register_confirm_password" class="form-label">Potwierdź hasło</label>
+                            <input type="password" class="form-control" id="register_confirm_password" name="register_confirm_password" required>
+                        </div>
+                        <button type="submit" name="get_register" class="btn btn-success">Zarejestruj</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
